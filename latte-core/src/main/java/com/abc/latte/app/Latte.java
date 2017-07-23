@@ -2,8 +2,8 @@ package com.abc.latte.app;
 
 import android.content.Context;
 
-import java.util.Objects;
-import java.util.WeakHashMap;
+import java.util.HashMap;
+
 
 /**
  * Created by admin on 2017/7/23.
@@ -14,7 +14,7 @@ public final  class Latte {
      getConfigurations().put(ConfigType.APPLICATION_CONTENT.name(),context.getApplicationContext());
      return Configurator.getInstance();
  }
-private static WeakHashMap<String,Object> getConfigurations(){
+private static HashMap<String,Object> getConfigurations(){
     return Configurator.getInstance().getLatteConfigs();
 }
 }
