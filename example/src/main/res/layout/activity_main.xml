@@ -6,11 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.abc.festec.example.ExampActivity">
 
-    <com.joanzapata.iconify.widget.IconTextView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-       android:text="##"
-
-         />
+        android:text="nighao0 "/>
 
 </LinearLayout>

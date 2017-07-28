@@ -21,11 +21,18 @@ import me.yokeyword.fragmentation.SupportActivity;
 public abstract class ProxyActivity extends SupportActivity {
       public abstract LetteDelegate setRootDelegate();
 
-    @Override
+   /* @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
-           initContainer(savedInstanceState);
+
+    }*/
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initContainer(savedInstanceState);
     }
+
     private void initContainer(@Nullable Bundle savedInstanceState){
       final   ContentFrameLayout container = new ContentFrameLayout(this);
          container.setId(R.id.delegate_container);
