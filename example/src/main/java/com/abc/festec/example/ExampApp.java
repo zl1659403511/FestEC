@@ -14,7 +14,12 @@ public class ExampApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Latte.init(this).withIcon(new FontAwesomeModule()).withIcon(new FontEcModule()).configure();
+            Latte
+                .init(this)
+                .withApiHost("http://blog.csdn.net/carson_ho/article/details/73732076/")
+                .withIcon(new FontAwesomeModule())
+                .withIcon(new FontEcModule())
+                 .configure();
     }
 }
 
