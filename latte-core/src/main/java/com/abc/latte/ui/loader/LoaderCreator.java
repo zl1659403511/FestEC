@@ -1,4 +1,4 @@
-package com.abc.latte.ui;
+package com.abc.latte.ui.loader;
 
 import android.content.Context;
 
@@ -6,8 +6,6 @@ import com.wang.avi.AVLoadingIndicatorView;
 import com.wang.avi.Indicator;
 
 import java.util.WeakHashMap;
-
-import retrofit2.Call;
 
 /**
  * Created by admin on 2017/7/30.

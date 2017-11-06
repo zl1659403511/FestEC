@@ -5,4 +5,5 @@ package com.abc.latte.delegate;
  */
 
 public abstract class LetteDelegate  extends PermissionCheckDelegate{
+
 }

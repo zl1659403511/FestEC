@@ -2,7 +2,6 @@ package com.abc.festec.example;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.abc.latte.delegate.LetteDelegate;
@@ -10,11 +9,6 @@ import com.abc.latte.net.RestClient;
 import com.abc.latte.net.callback.IError;
 import com.abc.latte.net.callback.IFailure;
 import com.abc.latte.net.callback.ISuccess;
-import com.abc.latte.ui.LoaderStyle;
-
-import butterknife.BindView;
-
-import static retrofit2.Response.success;
 
 /**
  * Created by admin on 2017/7/23.
@@ -33,12 +27,12 @@ public class ExampleDelegate extends LetteDelegate {
 
     private void testRestClient() {
         RestClient.builder()
-                .url("http://blog.csdn.net/carson_ho/article/details/73732076")
+                .url("http://127.0.0.1/index")
                 .loader(getContext())
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String resonse) {
-                        //Toast.makeText(getContext(), resonse, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), resonse, Toast.LENGTH_LONG).show();
                     }
                 })
                 .failure(new IFailure() {

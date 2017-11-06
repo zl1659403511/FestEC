@@ -2,22 +2,18 @@ package com.abc.latte.net;
 
 
 import android.content.Context;
-import android.widget.RelativeLayout;
 
-import com.abc.latte.R;
 import com.abc.latte.net.callback.IError;
 import com.abc.latte.net.callback.IFailure;
 import com.abc.latte.net.callback.IRequest;
 import com.abc.latte.net.callback.ISuccess;
-import com.abc.latte.ui.LoaderStyle;
+import com.abc.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
-import java.util.Map;
 import java.util.WeakHashMap;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
-import retrofit2.Call;
 
 /**
  * Created by admin on 2017/7/29.

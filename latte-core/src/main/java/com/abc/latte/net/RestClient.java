@@ -2,18 +2,16 @@ package com.abc.latte.net;
 
 import android.content.Context;
 
-import com.abc.latte.app.Latte;
 import com.abc.latte.net.callback.IError;
 import com.abc.latte.net.callback.IFailure;
 import com.abc.latte.net.callback.IRequest;
 import com.abc.latte.net.callback.ISuccess;
 import com.abc.latte.net.callback.RequestCallbacks;
 import com.abc.latte.net.download.DownLoadHandler;
-import com.abc.latte.ui.LatteLoader;
-import com.abc.latte.ui.LoaderStyle;
+import com.abc.latte.ui.loader.LatteLoader;
+import com.abc.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
-import java.io.PipedReader;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -23,7 +21,6 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 import static com.abc.latte.net.RestCreator.getRestService;
 
 /**
@@ -138,9 +135,9 @@ public class RestClient {
             if (!PARAMS.isEmpty()) {
                 throw new RuntimeException("params must be null!");
             }
-            request(HttpMethod.PUT_RAW);
+           request(HttpMethod.PUT_RAW);
         }
-        request(HttpMethod.POST);
+
     }
     public final void put() {
         if (null == BODY) {
@@ -151,7 +148,7 @@ public class RestClient {
             }
             request(HttpMethod.PUT_RAW);
         }
-        request(HttpMethod.PUT);
+
     }
     public final void delete() {
         request(HttpMethod.DELETE);

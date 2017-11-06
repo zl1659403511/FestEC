@@ -1,9 +1,7 @@
 package com.abc.latte.app;
 
-import android.app.Application;
 import android.content.Context;
-
-import java.util.HashMap;
+import android.os.Handler;
 
 
 /**
@@ -12,17 +10,30 @@ import java.util.HashMap;
 
 public final class Latte {
     public static Configurator init(Context context) {
-        getConfigurations().put(ConfigType.APPLICATION_CONTENT.name(), context.getApplicationContext());
+        Configurator.getInstance()
+                .getLatteConfigs()
+                .put(ConfigKeys.APPLICATION_CONTENT, context.getApplicationContext());
         return Configurator.getInstance();
     }
 
-    public static HashMap<String, Object> getConfigurations() {
-        return Configurator.getInstance().getLatteConfigs();
+    public static Configurator getConfigurator() {
+        return Configurator.getInstance();
+    }
+
+    public static <T> T getConfiguration(Object key) {
+        return getConfigurator().getConfiguration(key);
     }
 
     public static Context getApplicationContext() {
-        final Context context = (Context) getConfigurations().get(ConfigType.APPLICATION_CONTENT.name());
-        return context;
+        return getConfiguration(ConfigKeys.APPLICATION_CONTENT);
     }
+
+    public static Handler getHandler() {
+        return getConfiguration(ConfigKeys.HANDLER);
+    }
+
+    public static void test(){
+    }
+
 
 }

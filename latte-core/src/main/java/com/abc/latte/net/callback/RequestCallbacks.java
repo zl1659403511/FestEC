@@ -2,8 +2,9 @@ package com.abc.latte.net.callback;
 
 import android.os.Handler;
 
-import com.abc.latte.ui.LatteLoader;
-import com.abc.latte.ui.LoaderStyle;
+import com.abc.latte.ui.loader.LatteLoader;
+import com.abc.latte.ui.loader.LoaderStyle;
+import com.orhanobut.logger.Logger;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,10 +32,12 @@ public class RequestCallbacks implements Callback<String> {
 
     @Override
     public void onResponse(Call<String> call, Response<String> response) {
+        stopLoad();
         if (response.isSuccessful()) {
             if (call.isExecuted()) {
                 if (null != SUCCESS) {
                     SUCCESS.onSuccess(response.body());
+                    Logger.json(response.body());
                 }
             }
         } else {
@@ -42,7 +45,7 @@ public class RequestCallbacks implements Callback<String> {
                 ERROE.onError(response.code(), response.message());
             }
         }
-        stopLoad();
+
     }
 
     private void stopLoad() {
@@ -52,7 +55,7 @@ public class RequestCallbacks implements Callback<String> {
                 public void run() {
                     LatteLoader.stopLoading();
                 }
-            }, 3000);
+            }, 1000);
         }
     }
 
@@ -65,5 +68,6 @@ public class RequestCallbacks implements Callback<String> {
             REQUEST.onRequestEnd();
         }
         stopLoad();
+        Logger.e(t.getMessage());
     }
 }
